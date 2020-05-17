@@ -26,6 +26,9 @@ Devlogs:    https://manik-sinha.itch.io/wgj81-words/devlog
 --]]
 require "words"
 local draw_text = require "font"
+local default_font = love.graphics.getFont()
+local roboto_font = love.graphics.newFont("/font/Roboto-Regular.ttf", 32)
+local roboto_font_large = love.graphics.newFont("/font/Roboto-Regular.ttf", 55)
 local buttons = require "buttons"
 local shuffle_button = buttons.shuffle
 local random_button = buttons.random
@@ -291,7 +294,10 @@ function game.draw()
         love.graphics.setColor(1, 1, 1)
         if not grid.shaking_to_randomize then
           --love.graphics.print(grid[index], x + size / 2 - 9, y + size / 2 - 11)
-          draw_text(grid[index], x + size / 2 - 18, y + size / 2 - 18, 3)
+          --draw_text(grid[index], x + size / 2 - 18, y + size / 2 - 18, 3)
+          love.graphics.setFont(roboto_font_large)
+          love.graphics.printf(grid[index], x - 10, y + 8, 100, "center")
+          love.graphics.setFont(default_font)
         end
         --]]
         --draw_block(grid[index], x, y, 0, 0, 0, 1, 1, 1, "fill")
@@ -301,7 +307,10 @@ function game.draw()
         love.graphics.rectangle("line", x, y, size, size)
         if not grid.shaking_to_randomize then
           --love.graphics.print(grid[index], x + size / 2 - 9, y + size / 2 - 11)
-          draw_text(grid[index], x + size / 2 - 12, y + size / 2 - 12, 2)
+          --draw_text(grid[index], x + size / 2 - 12, y + size / 2 - 12, 2)
+          love.graphics.setFont(roboto_font)
+          love.graphics.printf(grid[index], x - 10, y + 22, 100, "center")
+          love.graphics.setFont(default_font)
         end
         --]]
         --draw_block(grid[index], x, y, 0, 0, 0, 0, 0, 0, "line")
@@ -313,7 +322,10 @@ function game.draw()
         love.graphics.setColor(1, 1, 1)
         if not grid.shaking_to_randomize then
           --love.graphics.print(grid[index], x + size / 2 - 9, y + size / 2 - 11)
-          draw_text(grid[index], x + size / 2 - 18, y + size / 2 - 18, 3)
+          --draw_text(grid[index], x + size / 2 - 18, y + size / 2 - 18, 3)
+          love.graphics.setFont(roboto_font_large)
+          love.graphics.printf(grid[index], x - 10, y + 8, 100, "center")
+          love.graphics.setFont(default_font)
         end
         --]]
         --draw_block(grid[index], x, y, 0.5, 0.5, 0.5, 1, 1, 1, "fill")
